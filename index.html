@@ -160,6 +160,7 @@
     .project-bg { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(37,99,235,.08), rgba(34,211,238,.08)); transition: transform var(--transition); }
     .project-content { position: relative; display: grid; gap: .8rem; }
     .tags { display: flex; gap: .5rem; flex-wrap: wrap; }
+    .project a:hover h3 { text-decoration: underline; }
 
     /* Privacy accordion */
     .accordion { display: grid; gap: .8rem; padding-inline: var(--spacing); }
@@ -285,6 +286,12 @@
 
     <!-- O&nbsp;SCANada -->
     <article class="project card">
+<a href="https://apps.apple.com/app/id6741120187"
+     target="_blank"
+     rel="noopener"
+     aria-label="View O SCANada on the App Store"
+     style="color: inherit; text-decoration: none; display: block;">
+
       <div class="project-bg" aria-hidden="true"></div>
       <div class="project-content">
         <h3>O&nbsp;SCANada</h3>
@@ -300,10 +307,17 @@
           <span class="chip">Cloud Functions</span>
         </div>
       </div>
+  </a>
     </article>
 
     <!-- Tarot Simple -->
     <article class="project card">
+<a href="https://apps.apple.com/ca/app/tarot-simple-cards-readings/id1546692464"
+     target="_blank"
+     rel="noopener"
+     aria-label="View Tarot Simple on the App Store"
+     style="color: inherit; text-decoration: none; display: block;">
+
       <div class="project-bg" aria-hidden="true"></div>
       <div class="project-content">
         <h3>Tarot Simple</h3>
@@ -314,9 +328,12 @@
         <div class="tags">
           <span class="chip">Swift</span>
           <span class="chip">UIKit</span>
-          <span class="chip">iOS</span>
+          <span class="chip">Firebase</span>
+          <span class="chip">Cloud Functions</span>
+	<span class="chip">iOS</span>
         </div>
       </div>
+  </a>
     </article>
 
   </div>
@@ -371,7 +388,6 @@
         <div class="contact-actions">
           <a class="btn btn-primary" href="mailto:cathy.checora@gmail.com">✉️ Email</a>
           <button id="copyEmail" class="btn" type="button">Copy Email</button>
-          <span class="chip">Response time: Soonish...</span>
         </div>
       </div>
     </section>
