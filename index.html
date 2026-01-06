@@ -1,61 +1,478 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cathy Checora · iOS Developer</title>
-  <meta name="description" content="Independent iOS developer building practical, user-first apps with Swift and UIKit." />
-  <link rel="stylesheet" href="styles.css" />
+  <title>Cathy Checora · Mobile App Developer</title>
+  <meta name="description" content="Mobile app developer focused on clean UX and robust integrations. Kotlin, Flutter, AI, and eLearning." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    /* =====================
+       Design Tokens
+    ====================== */
+    :root {
+      --bg: #0b1220;                 /* used behind gradient */
+      --card: #ffffff;
+      --muted-card: #f7f9fc;
+      --text: #111827;
+      --muted: #55607a;
+      --primary: #2563eb;
+      --accent: #22d3ee;
+      --ring: rgba(37, 99, 235, 0.35);
+      --radius: 14px;
+      --shadow: 0 10px 30px rgba(2,6,23,.08);
+      --spacing: clamp(16px, 2.5vw, 28px);
+      --container: 1120px;
+      --transition: .25s ease;
+      --nav-h: 64px;
+    }
+    [data-theme="dark"] {
+      --card: #0f172a;
+      --muted-card: #0b1220;
+      --text: #e5e7eb;
+      --muted: #a3acc2;
+      --primary: #60a5fa;
+      --accent: #67e8f9;
+      --ring: rgba(96, 165, 250, 0.4);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+
+    /* =====================
+       Base / Reset
+    ====================== */
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(34,211,238,.18), transparent 60%),
+                  radial-gradient(900px 500px at 90% 0%, rgba(37,99,235,.22), transparent 60%),
+                  linear-gradient(180deg, #f6f8fc 0%, #eef3fb 30%, #f7f9fc 70%, #ffffff 100%);
+      background-attachment: fixed;
+    }
+    [data-theme="dark"] body, [data-theme="dark"] {
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(34,211,238,.22), transparent 60%),
+                  radial-gradient(900px 500px at 90% 0%, rgba(96,165,250,.25), transparent 60%),
+                  linear-gradient(180deg, #0b1220 0%, #0b1220 100%);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 var(--spacing); }
+
+    /* Utility */
+    .visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    .chip { display: inline-flex; align-items: center; gap: .5rem; padding: .35rem .7rem; border-radius: 999px; background: var(--muted-card); color: var(--muted); font-size: .85rem; }
+
+    /* =====================
+       Top Navigation
+    ====================== */
+    .navwrap { position: sticky; top: 0; z-index: 60; backdrop-filter: saturate(1.2) blur(10px); width: 100%; }
+    nav {
+      display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+      padding: .6rem var(--spacing);
+      border-bottom: 1px solid rgba(100,116,139,.15);
+      background: color-mix(in lab, var(--card) 80%, transparent);
+      min-height: var(--nav-h);
+    }
+    .brand { font-weight: 800; letter-spacing: .2px; }
+    .brand span { color: var(--primary); }
+    .navlinks { display: flex; gap: 1rem; justify-content: center; }
+    .navlinks a { position: relative; padding: .4rem .6rem; border-radius: 10px; }
+    .navlinks a.active, .navlinks a:hover { background: rgba(99,102,241,.10); }
+    .nav-actions { display: flex; justify-content: end; gap: .5rem; align-items: center; }
+    .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .55rem .9rem; border: 1px solid rgba(100,116,139,.25); border-radius: 12px; background: var(--card); box-shadow: var(--shadow); transition: transform var(--transition), box-shadow var(--transition), background var(--transition); }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 35px rgba(2,6,23,.12); }
+    .btn-primary { border-color: transparent; background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; box-shadow: 0 10px 30px rgba(37,99,235,.35); }
+
+    /* Hamburger */
+    .hamburger { display: none; width: 40px; height: 40px; border-radius: 10px; border: 1px solid rgba(100,116,139,.25); background: var(--card); align-items: center; justify-content: center; cursor: pointer; }
+    .hamburger .bar { width: 18px; height: 2px; background: currentColor; position: relative; }
+    .hamburger .bar::before, .hamburger .bar::after { content: ""; position: absolute; left: 0; width: 18px; height: 2px; background: currentColor; transition: transform .2s ease; }
+    .hamburger .bar::before { top: -6px; }
+    .hamburger .bar::after { top: 6px; }
+    .hamburger[aria-expanded="true"] .bar { background: transparent; }
+    .hamburger[aria-expanded="true"] .bar::before { transform: translateY(6px) rotate(45deg); }
+    .hamburger[aria-expanded="true"] .bar::after { transform: translateY(-6px) rotate(-45deg); }
+
+    /* Mobile menu panel + animation */
+    .mobile-panel {
+      display: block; /* allow anim but visually hidden by default */
+      position: absolute; inset: var(--nav-h) 0 auto 0; z-index: 55;
+      background: color-mix(in lab, var(--card) 92%, transparent);
+      border-bottom: 1px solid rgba(100,116,139,.15);
+      box-shadow: var(--shadow);
+      padding: calc(var(--spacing)*0.75) var(--spacing);
+      transform: translateY(-8px);
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: transform .22s ease, opacity .22s ease, visibility 0s linear .22s;
+    }
+    .mobile-panel.open { transform: translateY(0); opacity: 1; visibility: visible; pointer-events: auto; transition-delay: 0s; }
+    .mobile-links { display: grid; gap: .6rem; }
+    .mobile-links a { padding: .6rem .75rem; border-radius: 10px; }
+    .mobile-links a:hover { background: rgba(99,102,241,.08); }
+
+    /* Scrim (backdrop) */
+    .scrim {
+      position: fixed; inset: 0; z-index: 50; background: rgba(2,6,23,.45);
+      opacity: 0; pointer-events: none; transition: opacity .22s ease;
+    }
+    .scrim.open { opacity: 1; pointer-events: auto; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .mobile-panel { transition: none; }
+      .scrim { transition: none; }
+    }
+
+    /* =====================
+       Hero
+    ====================== */
+    header.hero { padding: calc(var(--spacing)*2.2) 0 calc(var(--spacing)*1.2); text-align: center; }
+    .hero-title { font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1.05; letter-spacing: -.5px; margin: 0 0 .8rem; }
+    .hero-sub { max-width: 780px; margin: 0 auto; font-size: clamp(1rem, 2vw, 1.15rem); color: var(--muted); padding-inline: var(--spacing); }
+    .hero-cta { margin-top: 1.25rem; display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; padding-inline: var(--spacing); }
+
+    /* Floating orbs background */
+    .orbs { position: absolute; inset: -80px 0 auto 0; height: 240px; pointer-events: none; overflow: hidden; }
+    .orb { position: absolute; width: 220px; height: 220px; border-radius: 50%; filter: blur(30px); opacity: .6; animation: float 12s ease-in-out infinite; }
+    .orb.a { left: 8%; top: -20px; background: radial-gradient(circle at 30% 30%, #22d3ee, transparent 60%); }
+    .orb.b { right: 10%; top: -40px; background: radial-gradient(circle at 70% 40%, #2563eb, transparent 60%); animation-delay: 2.2s; }
+    @keyframes float { 0%,100%{ transform: translateY(0)} 50%{ transform: translateY(14px)} }
+
+    /* =====================
+       Sections / Cards
+    ====================== */
+    section { scroll-margin-top: 92px; }
+    .card { background: var(--card); border: 1px solid rgba(100,116,139,.17); border-radius: var(--radius); box-shadow: var(--shadow); padding: clamp(16px, 2vw, 26px); }
+    .section { padding: calc(var(--spacing)*1.2) 0; }
+    .section h2 { font-size: clamp(1.35rem, 2.8vw, 2rem); margin: 0 0 .8rem; }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; padding-inline: var(--spacing); }
+
+    /* Projects grid */
+    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(12, 1fr); padding-inline: var(--spacing); }
+    .project { grid-column: span 12; display: grid; grid-template-columns: 1fr; gap: 1rem; position: relative; overflow: hidden; }
+    .project:hover .project-bg { transform: scale(1.04); }
+    .project-bg { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(37,99,235,.08), rgba(34,211,238,.08)); transition: transform var(--transition); }
+    .project-content { position: relative; display: grid; gap: .8rem; }
+    .tags { display: flex; gap: .5rem; flex-wrap: wrap; }
+
+    /* Privacy accordion */
+    .accordion { display: grid; gap: .8rem; padding-inline: var(--spacing); }
+    details.ac { border: 1px solid rgba(100,116,139,.2); border-radius: var(--radius); background: var(--card); box-shadow: var(--shadow); overflow: hidden; }
+    details.ac[open] summary { border-bottom: 1px solid rgba(100,116,139,.15); }
+    details.ac summary { cursor: pointer; padding: 1rem 1.1rem; list-style: none; font-weight: 600; display: flex; align-items: center; justify-content: space-between; }
+    details.ac summary::-webkit-details-marker { display: none; }
+    details.ac .panel { padding: 1rem 1.1rem; color: var(--muted); }
+
+    /* Contact */
+    .contact-actions { display: flex; gap: .6rem; flex-wrap: wrap; }
+    .kbd { border: 1px solid rgba(100,116,139,.35); border-bottom-width: 2px; padding: 2px 6px; border-radius: 6px; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+    /* Footer */
+    footer { padding: 2rem 0; text-align: center; color: var(--muted); }
+
+    /* Reveal on scroll */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Responsive */
+    @media (min-width: 720px) {
+      .about-grid { grid-template-columns: .9fr 1.1fr; }
+      .project { grid-column: span 6; }
+    }
+    @media (max-width: 900px) {
+      /* beef up safe padding on small screens */
+      .container { padding-inline: calc(var(--spacing) * 1.1); }
+      /* collapse nav into hamburger */
+      .navlinks { display: none; }
+      .nav-actions .btn.btn-primary { display: none; }
+      .hamburger { display: inline-flex; }
+    }
+  </style>
 </head>
-
 <body>
-  <main class="container">
-    <section class="hero">
-      <p class="eyebrow">Independent iOS Developer</p>
-      <h1>Cathy Checora</h1>
-      <p class="lead">
-        I’m an independent iOS developer building practical, user-first apps with Swift and UIKit.
-        I enjoy learning and solving complex problems.
-      </p>
+  <div class="navwrap">
+    <nav class="container" role="navigation" aria-label="Primary">
+      <div class="brand">Ryan <span>Checora</span></div>
 
-      <div class="links">
-        <a href="https://github.com/CChecora">GitHub</a>
-        <!-- Add App Store link later -->
+      <!-- Desktop links -->
+      <div class="navlinks" id="navlinks">
+        <a href="#about" data-link>About</a>
+        <a href="#projects" data-link>Projects</a>
+        <a href="#privacy" data-link>Privacy</a>
+        <a href="#contact" data-link>Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false"><span class="bar"></span></button>
+        <button class="btn" id="themeToggle" aria-label="Toggle dark mode">🌙 <span class="visually-hidden">Toggle dark mode</span></button>
+        <a class="btn btn-primary" href="#contact">Let’s Chat</a>
+      </div>
+    </nav>
+
+    <!-- Mobile dropdown panel -->
+    <div id="mobileMenu" class="mobile-panel" role="dialog" aria-modal="true" aria-labelledby="mobileMenuLabel">
+      <div class="mobile-links container">
+        <a href="#about" data-link>About</a>
+        <a href="#projects" data-link>Projects</a>
+        <a href="#privacy" data-link>Privacy</a>
+        <a href="#contact" data-link>Contact</a>
+        <a class="btn btn-primary" href="#contact" style="width:max-content">Let’s Chat</a>
+      </div>
+    </div>
+    <div id="scrim" class="scrim" hidden></div>
+  </div>
+
+  <header class="hero container">
+    <div class="orbs" aria-hidden="true">
+      <div class="orb a"></div>
+      <div class="orb b"></div>
+    </div>
+    <h1 class="hero-title">Mobile App Developer crafting clean UX with solid, scalable back‑ends.</h1>
+    <p class="hero-sub">I build native and cross‑platform apps (Kotlin, Flutter), wire up payments, analytics, and AI features, and obsess over reliability. Recently: AI‑assisted eLearning, vector search, and chatbot UX.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#projects">View Projects</a>
+      <a class="btn" href="#privacy">Privacy Policies</a>
+      <span class="chip" title="Available for select work">🟢 Available</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- About -->
+    <section id="about" class="section container reveal">
+      <div class="about-grid">
+        <div class="card">
+          <h2>About Me</h2>
+          <p>I specialize in Kotlin‑based Android and Flutter development. Notable apps include <strong>Tarot Simple</strong> — a minimalist tarot experience with AI personalization and multilingual support — and <strong>GridSpace</strong> — a daily word‑puzzle built for strategic play.</p>
+          <p>With secure payments, API integrations, and localization under the hood, I deliver clean interfaces and scalable architectures. I thrive on problem‑solving and crafting solutions that prioritize trust and engagement.</p>
+          <div class="tags" aria-label="Tech stack">
+            <span class="chip">Kotlin</span>
+            <span class="chip">Flutter/Dart</span>
+            <span class="chip">Firebase</span>
+            <span class="chip">OpenAI</span>
+            <span class="chip">Pinecone</span>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Quick Stats</h2>
+          <ul>
+            <li>🧪 Recently: AI chat overlays for eLearning + vector search</li>
+            <li>💳 Payments: RevenueCat, in‑app subscriptions</li>
+            <li>🔒 Security: App Check, auth flows, privacy by design</li>
+            <li>🌍 Localization: 14+ languages shipped</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <section class="section">
+    <!-- Projects -->
+    <section id="projects" class="section container reveal">
       <h2>Projects</h2>
-
-      <div class="card">
-        <h3>O SCANada</h3>
-        <p class="muted">
-          Barcode and text search to help people identify Canadian alternatives,
-          with citations and community notes.
-        </p>
-        <ul>
-          <li>Swift + UIKit</li>
-          <li>Firebase (Firestore & Cloud Functions)</li>
-          <li>RevenueCat & AdMob</li>
-        </ul>
+      <div class="grid">
+        <article class="project card">
+          <div class="project-bg" aria-hidden="true"></div>
+          <div class="project-content">
+            <h3>Tarot Simple</h3>
+            <p>A distraction‑free tarot app featuring AI‑guided readings, daily affirmations, and seamless subscription via RevenueCat with 14+ language support.</p>
+            <div class="tags">
+              <span class="chip">Kotlin</span>
+              <span class="chip">RevenueCat</span>
+              <span class="chip">i18n</span>
+            </div>
+          </div>
+        </article>
+        <article class="project card">
+          <div class="project-bg" aria-hidden="true"></div>
+          <div class="project-content">
+            <h3>GridSpace</h3>
+            <p>An innovative word‑puzzle blending creativity and strategy, with intuitive level design and a daily challenge mode for ongoing engagement.</p>
+            <div class="tags">
+              <span class="chip">Flutter</span>
+              <span class="chip">Game Design</span>
+              <span class="chip">Analytics</span>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="section">
-      <h2>About</h2>
-      <p>
-        I focus on building clear, reliable iOS experiences that solve real problems.
-        I care about correctness, usability, and shipping products people can trust.
-      </p>
+    <!-- Privacy Policies as Accordion -->
+    <section id="privacy" class="section container reveal">
+      <h2>Privacy Policies</h2>
+      <div class="accordion">
+        <details class="ac">
+          <summary>GridSpace Privacy Policy <span class="chip">Effective: Jan 1, 2025</span></summary>
+          <div class="panel">
+            <p><strong>Personal Information:</strong> GridSpace does not collect personally identifiable information (PII) such as names, email addresses, or phone numbers.</p>
+            <p><strong>Non‑Personal Information:</strong> There is currently no plan to collect anonymized data (e.g., gameplay stats). This may change in future updates to improve performance and experience.</p>
+            <p><strong>Third‑Party Services:</strong> GridSpace may use analytics tools that collect non‑personal information and comply with data‑protection standards.</p>
+            <p><strong>Changes:</strong> This policy may be updated. Please review periodically.</p>
+            <p><strong>Contact:</strong> See contact details below for questions.</p>
+          </div>
+        </details>
+        <details class="ac">
+          <summary>O SCANada Privacy Policy <span class="chip">Effective: Feb 5, 2025</span></summary>
+          <div class="panel">
+            <p><strong>Personal Information:</strong> “Made In Canada?” does not collect PII such as names, email addresses, or phone numbers.</p>
+            <p><strong>Third‑Party Services:</strong> May use analytics tools that collect only non‑personal information.</p>
+            <p><strong>Changes:</strong> This policy may be updated. Please review periodically.</p>
+            <p><strong>Contact:</strong> See contact details below for questions.</p>
+          </div>
+        </details>
+        <details class="ac">
+          <summary>Recommend Me Privacy Policy <span class="chip">Effective: May 27, 2025</span></summary>
+          <div class="panel">
+            <p><strong>Personal Information:</strong> “Recommend Me” does not collect PII.</p>
+            <p><strong>Third‑Party Services:</strong> May use analytics compliant with industry standards and only collect non‑personal information.</p>
+            <p><strong>Log Data:</strong> We may receive device‑level information such as IP address, device name, OS version, and general statistics.</p>
+            <p><strong>Cookies:</strong> Not used. For Apple Media Services terms, refer to the App Store.</p>
+            <p><strong>Service Providers:</strong> We may invite third‑party services such as Google Mobile Ads.</p>
+            <p><strong>Security & Children’s Privacy:</strong> We value your trust. No method of transmission is 100% secure.</p>
+            <p><strong>Links:</strong> This service may contain links to external sites. Review their privacy policies; we do not control their practices.</p>
+            <p><strong>Changes:</strong> This policy may be updated; please review periodically.</p>
+            <p><strong>Contact:</strong> See contact details below for questions.</p>
+          </div>
+        </details>
+      </div>
     </section>
 
-    <footer class="footer">
-      © <span id="year"></span> Cathy Checora
-    </footer>
+    <!-- Contact -->
+    <section id="contact" class="section container reveal">
+      <div class="card" style="margin-inline: var(--spacing);">
+        <h2>Contact</h2>
+        <p>Let’s collaborate. I’m open to selective projects and partnerships.</p>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:ryan.checora@gmail.com">✉️ Email Me</a>
+          <button id="copyEmail" class="btn" type="button">Copy Email</button>
+          <span class="chip">Response time: usually same day</span>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <footer class="container">
+    <p>© <span id="year"></span> Ryan Checora · Built with care.</p>
+  </footer>
+
+  <button id="toTop" class="btn" style="position: fixed; right: 16px; bottom: 16px; opacity: 0; pointer-events: none;">↑ Top</button>
+
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // ==========================
+    // Theme Toggle (with persist)
+    // ==========================
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    if (saved) document.documentElement.setAttribute('data-theme', saved);
+    themeToggle.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      themeToggle.textContent = next === 'dark' ? '🌙' : '🌞';
+    });
+    themeToggle.textContent = root.getAttribute('data-theme') === 'dark' ? '🌙' : '🌞';
+
+    // ==========================
+    // Scroll‑spy active nav
+    // ==========================
+    const navLinks = [...document.querySelectorAll('[data-link]')];
+    const sections = navLinks.map(a => document.querySelector(a.getAttribute('href')));
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const idx = sections.indexOf(entry.target);
+        if (idx > -1) {
+          navLinks[idx].classList.toggle('active', entry.isIntersecting);
+        }
+      });
+    }, { rootMargin: '-60% 0px -35% 0px', threshold: 0.01 });
+    sections.forEach(s => s && obs.observe(s));
+
+    // ==========================
+    // Reveal on scroll
+    // ==========================
+    const toReveal = document.querySelectorAll('.reveal');
+    const rObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); rObs.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    toReveal.forEach(el => rObs.observe(el));
+
+    // ==========================
+    // Copy email helper
+    // ==========================
+    document.getElementById('copyEmail').addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText('ryan.checora@gmail.com');
+        const btn = document.getElementById('copyEmail');
+        const prev = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = prev, 1300);
+      } catch (e) { alert('Copy failed. Email: ryan.checora@gmail.com'); }
+    });
+
+    // ==========================
+    // Year + Back to top button
+    // ==========================
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const toTop = document.getElementById('toTop');
+    const toggleTop = () => {
+      const show = window.scrollY > 240;
+      toTop.style.opacity = show ? 1 : 0;
+      toTop.style.pointerEvents = show ? 'auto' : 'none';
+    };
+    window.addEventListener('scroll', toggleTop, { passive: true });
+    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // ==========================
+    // Keyboard shortcuts
+    // ==========================
+    // g + p -> Projects, g + a -> About, g + c -> Contact
+    let gPressed = false;
+    window.addEventListener('keydown', (e) => {
+      if (e.key.toLowerCase() === 'g') { gPressed = true; setTimeout(() => gPressed = false, 700); }
+      if (gPressed) {
+        if (e.key.toLowerCase() === 'p') document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
+        if (e.key.toLowerCase() === 'a') document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
+        if (e.key.toLowerCase() === 'c') document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+    // ==========================
+    // Mobile hamburger + animation
+    // ==========================
+    const burger = document.getElementById('hamburger');
+    const mobile = document.getElementById('mobileMenu');
+    const scrim = document.getElementById('scrim');
+    const openMobile = () => {
+      burger.setAttribute('aria-expanded', 'true');
+      mobile.classList.add('open');
+      scrim.hidden = false; scrim.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeMobile = () => {
+      burger.setAttribute('aria-expanded', 'false');
+      mobile.classList.remove('open');
+      scrim.classList.remove('open');
+      setTimeout(() => { scrim.hidden = true; }, 220);
+      document.body.style.overflow = '';
+    };
+    const toggleMobile = () => {
+      const expanded = burger.getAttribute('aria-expanded') === 'true';
+      expanded ? closeMobile() : openMobile();
+    };
+
+    burger.addEventListener('click', toggleMobile);
+    scrim.addEventListener('click', closeMobile);
+
+    // Close on link click
+    mobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      if (mobile.classList.contains('open')) closeMobile();
+    }));
+    // Close on Escape
+    window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && mobile.classList.contains('open')) closeMobile(); });
   </script>
 </body>
 </html>
