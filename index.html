@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cathy Checora · iOS Developer</title>
+  <meta name="description" content="Independent iOS developer building practical, user-first apps with Swift and UIKit." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">Independent iOS Developer</p>
+      <h1>Cathy Checora</h1>
+      <p class="lead">
+        I’m an independent iOS developer building practical, user-first apps with Swift and UIKit.
+        I enjoy learning and solving complex problems.
+      </p>
+
+      <div class="links">
+        <a href="https://github.com/CChecora">GitHub</a>
+        <!-- Add App Store link later -->
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Projects</h2>
+
+      <div class="card">
+        <h3>O SCANada</h3>
+        <p class="muted">
+          Barcode and text search to help people identify Canadian alternatives,
+          with citations and community notes.
+        </p>
+        <ul>
+          <li>Swift + UIKit</li>
+          <li>Firebase (Firestore & Cloud Functions)</li>
+          <li>RevenueCat & AdMob</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>About</h2>
+      <p>
+        I focus on building clear, reliable iOS experiences that solve real problems.
+        I care about correctness, usability, and shipping products people can trust.
+      </p>
+    </section>
+
+    <footer class="footer">
+      © <span id="year"></span> Cathy Checora
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
