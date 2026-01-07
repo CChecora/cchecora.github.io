@@ -57,10 +57,24 @@
       margin: 0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: var(--text);
-      background: radial-gradient(1200px 600px at 10% -10%, rgba(34,211,238,.18), transparent 60%),
-                  radial-gradient(900px 500px at 90% 0%, rgba(37,99,235,.22), transparent 60%),
-                  linear-gradient(180deg, #f6f8fc 0%, #eef3fb 30%, #f7f9fc 70%, #ffffff 100%);
-      background-attachment: fixed;
+      background:
+    radial-gradient(
+      1200px 600px at 10% -10%,
+      rgba(176, 137, 104, 0.12), /* warm brass haze */
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 500px at 90% 0%,
+      rgba(91, 109, 91, 0.12), /* muted green haze */
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      #f4f3ef 0%,
+      #f6f6f4 40%,
+      #ffffff 100%
+    );
+  background-attachment: fixed;
     }
     [data-theme="dark"] body, [data-theme="dark"] {
       background: radial-gradient(1200px 600px at 10% -10%, rgba(34,211,238,.22), transparent 60%),
