@@ -1,274 +1,236 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cathy Checora · Mobile App Developer</title>
-  <meta name="description" content="Mobile app developer. I build iOS apps with Swift and UIKit. Firebase, Cloud Functions, AI, Admob, RevenueCat." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=4">
-</head>
-<body>
-  <div class="navwrap">
-    <nav class="container" role="navigation" aria-label="Primary">
-      <div class="brand">Cathy <span>Checora</span></div>
-
-      <!-- Desktop links -->
-      <div class="navlinks" id="navlinks">
-        <a href="#about" data-link>About</a>
-        <a href="#projects" data-link>Projects</a>
-        <a href="#privacy" data-link>Privacy</a>
-        <a href="#contact" data-link>Contact</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cathy Checora · Mobile App Developer</title>
+    <meta name="description" content="Mobile app developer. I build iOS apps with Swift and UIKit. Firebase, Cloud Functions, AI, Admob, RevenueCat." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=4">
+  </head>
+  <body>
+    <div class="navwrap">
+      <nav class="container" role="navigation" aria-label="Primary">
+        <div class="brand">Cathy <span>Checora</span></div>
+        <!-- Desktop links -->
+        <div class="navlinks" id="navlinks">
+          <a href="#about" data-link>About</a>
+          <a href="#projects" data-link>Projects</a>
+          <a href="#privacy" data-link>Privacy</a>
+          <a href="#contact" data-link>Contact</a>
+        </div>
+        <div class="nav-actions">
+          <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false"><span class="bar"></span></button>
+          <button class="btn" id="themeToggle" aria-label="Toggle dark mode">🌙 <span class="visually-hidden">Toggle dark mode</span></button>       
+        </div>
+      </nav>
+      <!-- Mobile dropdown panel -->
+      <div id="mobileMenu" class="mobile-panel" role="dialog" aria-modal="true" aria-labelledby="mobileMenuLabel">
+        <div class="mobile-links container">
+          <a href="#about" data-link>About</a>
+          <a href="#projects" data-link>Projects</a>
+          <a href="#privacy" data-link>Privacy</a>
+          <a href="#contact" data-link>Contact</a>
+        </div>
       </div>
-
-      <div class="nav-actions">
-        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false"><span class="bar"></span></button>
-        <button class="btn" id="themeToggle" aria-label="Toggle dark mode">🌙 <span class="visually-hidden">Toggle dark mode</span></button>       
-      </div>
-    </nav>
-
-    <!-- Mobile dropdown panel -->
-    <div id="mobileMenu" class="mobile-panel" role="dialog" aria-modal="true" aria-labelledby="mobileMenuLabel">
-      <div class="mobile-links container">
-        <a href="#about" data-link>About</a>
-        <a href="#projects" data-link>Projects</a>
-        <a href="#privacy" data-link>Privacy</a>
-        <a href="#contact" data-link>Contact</a>
-      </div>
+      <div id="scrim" class="scrim" hidden></div>
     </div>
-    <div id="scrim" class="scrim" hidden></div>
-  </div>
-
-  <header class="hero container">
-    <div class="orbs" aria-hidden="true">
-      <div class="orb a"></div>
-      <div class="orb b"></div>
-    </div>
-    <h1 class="hero-title">Independent iOS developer building practical, user-first apps.</h1>
-    <span class="btn" style="margin: 1rem auto 1.2rem; pointer-events: none;">
-  I like making things
-</span>
-    <p class="hero-sub">I build iOS apps with Swift and UIKit, and I enjoy learning and solving complex problems and taking the time to make things right.</p>
-    <div class="hero-cta">
-      <a class="btn btn-primary" href="#projects">View Projects</a>
-      <a class="btn" href="#privacy">Privacy Policies</a>
-    </div>
-  </header>
-
-  <main>
-    <!-- About -->
-    <section id="about" class="section container reveal">
-      <div class="about-grid">
-        <div class="card">
-          <h2><h2>About Me</h2>
-<p>
-  I’m an independent iOS developer, the creator of <strong>O&nbsp;SCANada</strong>, an app that helps people identify Canadian
-  alternatives through barcode and text search, with transparent sourcing notes and citations.
-  </p>
-  <p>          
-  I have also built <strong>Tarot Simple</strong>, an iOS app focused on clarity and clean UI.
- </p>
-  <p>    
-  These projects reflect how I like to work: useful ideas, careful research, clear explanations,
-  and following problems through.
-</p>
-        </div>
-        <div class="card">
-          <h2>Tech stack</h2>
-          <ul>
-            <li>Swift</li>
-            <li>UIKit</li>
-            <li>Firebase</li>
-            <li>Cloud Functions</li>
-          </ul>
-          <h2>Recent topics</h2>
-          <ul>
-            <li>AI</li>
-            <li>Admob</li>
-            <li>RevenueCat</li>
-          </ul>
-        </div>
+    <header class="hero container">
+      <div class="orbs" aria-hidden="true">
+        <div class="orb a"></div>
+        <div class="orb b"></div>
       </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="section container reveal">
-  <h2>Projects</h2>
-  <div class="grid">
-
-    <!-- O&nbsp;SCANada -->
-    <article class="project card">
-<a href="https://apps.apple.com/app/id6741120187"
-     target="_blank"
-     rel="noopener"
-     aria-label="View O SCANada on the App Store"
-     style="color: inherit; text-decoration: none; display: block;">
-
-      <div class="project-bg" aria-hidden="true"></div>
-      <div class="project-content">
-        <h3>O&nbsp;SCANada</h3>
-        <p>
-          An iOS app that helps people identify Canadian alternatives using barcode and text search.
-          Emphasis is placed on transparent sourcing notes, citations, and careful distinctions rather
-          than oversimplified labels.
-        </p>
-        <div class="tags">
-          <span class="chip">Swift</span>
-          <span class="chip">UIKit</span>
-          <span class="chip">Firebase</span>
-          <span class="chip">Cloud Functions</span>
-        </div>
+      <h1 class="hero-title">Independent iOS developer building practical, user-first apps.</h1>
+      <span class="btn" style="margin: 1rem auto 1.2rem; pointer-events: none;">
+      I like making things
+      </span>
+      <p class="hero-sub">I build iOS apps with Swift and UIKit, and I enjoy learning and solving complex problems and taking the time to make things right.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#projects">View Projects</a>
+        <a class="btn" href="#privacy">Privacy Policies</a>
       </div>
-  </a>
-    </article>
-
-    <!-- Tarot Simple -->
-    <article class="project card">
-<a href="https://apps.apple.com/ca/app/tarot-simple-cards-readings/id1546692464"
-     target="_blank"
-     rel="noopener"
-     aria-label="View Tarot Simple on the App Store"
-     style="color: inherit; text-decoration: none; display: block;">
-
-      <div class="project-bg" aria-hidden="true"></div>
-      <div class="project-content">
-        <h3>Tarot Simple</h3>
-        <p>
-          A modern iOS tarot app designed around clarity and minimalism.
-          The project prioritizes correctness, maintainability, and a calm user experience.
-        </p>
-        <div class="tags">
-          <span class="chip">Swift</span>
-          <span class="chip">UIKit</span>
-          <span class="chip">Firebase</span>
-          <span class="chip">Cloud Functions</span>
+    </header>
+    <main>
+      <!-- About -->
+      <section id="about" class="section container reveal">
+        <div class="about-grid">
+          <div class="card">
+            <h2>
+            <h2>About Me</h2>
+            <p>
+              I’m an independent iOS developer, the creator of <strong>O&nbsp;SCANada</strong>, an app that helps people identify Canadian
+              alternatives through barcode and text search, with transparent sourcing notes and citations.
+            </p>
+            <p>          
+              I have also built <strong>Tarot Simple</strong>, an iOS app focused on clarity and clean UI.
+            </p>
+            <p>    
+              These projects reflect how I like to work: useful ideas, careful research, clear explanations,
+              and following problems through.
+            </p>
+          </div>
+          <div class="card">
+            <h2>Tech stack</h2>
+            <ul>
+              <li>Swift</li>
+              <li>UIKit</li>
+              <li>Firebase</li>
+              <li>Cloud Functions</li>
+            </ul>
+            <h2>Recent topics</h2>
+            <ul>
+              <li>AI</li>
+              <li>Admob</li>
+              <li>RevenueCat</li>
+            </ul>
+          </div>
         </div>
-      </div>
-  </a>
-    </article>
-
-  </div>
-</section>
-
-    <!-- Privacy Policies as Accordion -->
-    <section id="privacy" class="section container reveal">
-      <h2>Privacy Policies and Terms of Service</h2>
-      <div class="accordion">
-       <details class="ac" id="tarot-simple">
-  <summary>Tarot Simple Privacy & Terms <span class="chip">Effective: January 6, 2026</span></summary>
-  <div class="panel">
-    <p><strong>Provided “as is”:</strong> Tarot Simple is provided by Cathy Checora (the developer) for use as is.</p>
-
-    <p><strong>Personal Information:</strong> You are not asked to provide personally identifiable information to use the app.</p>
-
-    <p><strong>Notes stored locally:</strong> Any notes you keep in the app are stored locally on your device.</p>
-
-    <p><strong>Log Data (errors):</strong> If the app encounters an error, the developer may receive anonymous log data such as IP address, device name, operating system version, app configuration at the time of use, time/date of use, and basic statistics.</p>
-
-    <p><strong>Advertising (Google Mobile Ads):</strong> The app uses Google Mobile Ads, which may collect information for advertising and analytics, such as device identifiers (including the advertising identifier), IP address (for approximate location), ad interaction data, app interaction events, crash logs, and performance data.</p>
-
-    <p><strong>Cookies:</strong> The service does not use cookies. Third-party services (such as the App Store, Play Store, and advertising providers) may have their own terms and practices.</p>
-
-    <p><strong>Links:</strong> The service may contain links to other sites. External websites are not operated by the developer; please review their privacy policies.</p>
-
-    <p><strong>Security:</strong> No method of transmission or electronic storage is 100% secure; absolute security cannot be guaranteed.</p>
-
-    <p><strong>Terms highlights:</strong> You may not copy, modify, reverse engineer, extract source code, translate, or create derivative versions of the app. Please keep your device secure and avoid jailbreaking/rooting.</p>
-
-    <p><strong>Connectivity &amp; charges:</strong> Some features may require an internet connection. You are responsible for any data/roaming charges and for keeping your device charged.</p>
-
-    <p><strong>Updates &amp; termination:</strong> The developer may update, change, charge for, or discontinue the app at any time. If the app is terminated, you must stop using it (and delete it if needed).</p>
-
-    <p>
-      <strong>Apple EULA:</strong>
-      Apple users should also review the
-      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
-         target="_blank"
-         rel="noopener">
-        Apple Standard End User License Agreement
-      </a>.
-    </p>
-
-    <p><strong>Changes:</strong> This policy and these terms may be updated by posting changes on this page; changes take effect immediately when posted.</p>
-
-    <p><strong>Contact:</strong> Questions or suggestions? Email using the address in the Contact section below.</p>
-  </div>
-</details>
-        <details class="ac">
-          <summary>
-            <a
-              href="https://cchecora.github.io/OSCANada/"
+      </section>
+      <!-- Projects -->
+      <section id="projects" class="section container reveal">
+        <h2>Projects</h2>
+        <div class="grid">
+          <!-- O&nbsp;SCANada -->
+          <article class="project card">
+            <a href="https://apps.apple.com/app/id6741120187"
               target="_blank"
               rel="noopener"
-            > 
-              O&nbsp;SCANada Privacy & Terms
+              aria-label="View O SCANada on the App Store"
+              style="color: inherit; text-decoration: none; display: block;">
+              <div class="project-bg" aria-hidden="true"></div>
+              <div class="project-content">
+                <h3>O&nbsp;SCANada</h3>
+                <p>
+                  An iOS app that helps people identify Canadian alternatives using barcode and text search.
+                  Emphasis is placed on transparent sourcing notes, citations, and careful distinctions rather
+                  than oversimplified labels.
+                </p>
+                <div class="tags">
+                  <span class="chip">Swift</span>
+                  <span class="chip">UIKit</span>
+                  <span class="chip">Firebase</span>
+                  <span class="chip">Cloud Functions</span>
+                </div>
+              </div>
             </a>
-            <span class="chip">View</span>
-          </summary>
-          <div class="panel">
-            <p><strong>Personal Information:</strong> “Made In Canada?” does not collect PII such as names, email addresses, or phone numbers.</p>
-            <p><strong>Third‑Party Services:</strong> May use analytics tools that collect only non‑personal information.</p>
-            <p><strong>Changes:</strong> This policy may be updated. Please review periodically.</p>
-            <p><strong>Contact:</strong> See contact details below for questions.</p>
-          </div>
-        </details>
-       <details class="ac" id="chip-the-tooth">
-          <summary>Chip the Tooth Privacy & Terms <span class="chip">Effective: January 6, 2026</span></summary>
-          <div class="panel">
-            <p><strong>Provided “as is”:</strong> Chip the Tooth is provided by Cathy Checora (the developer) for use as is.</p>
-        
-            <p><strong>Personal Information:</strong> The developer does not request personal information.</p>
-        
-            <p><strong>Third-Party Services:</strong> The app does not use third-party services other than the Apple App Store. For Apple Media Services terms, please refer to the 
+          </article>
+          <!-- Tarot Simple -->
+          <article class="project card">
+            <a href="https://apps.apple.com/ca/app/tarot-simple-cards-readings/id1546692464"
+              target="_blank"
+              rel="noopener"
+              aria-label="View Tarot Simple on the App Store"
+              style="color: inherit; text-decoration: none; display: block;">
+              <div class="project-bg" aria-hidden="true"></div>
+              <div class="project-content">
+                <h3>Tarot Simple</h3>
+                <p>
+                  A modern iOS tarot app designed around clarity and minimalism.
+                  The project prioritizes correctness, maintainability, and a calm user experience.
+                </p>
+                <div class="tags">
+                  <span class="chip">Swift</span>
+                  <span class="chip">UIKit</span>
+                  <span class="chip">Firebase</span>
+                  <span class="chip">Cloud Functions</span>
+                </div>
+              </div>
+            </a>
+          </article>
+        </div>
+      </section>
+      <!-- Privacy Policies as Accordion -->
+      <section id="privacy" class="section container reveal">
+        <h2>Privacy Policies and Terms of Service</h2>
+        <div class="accordion">
+          <details class="ac" id="tarot-simple">
+            <summary>Tarot Simple Privacy & Terms <span class="chip">Effective: January 6, 2026</span></summary>
+            <div class="panel">
+              <p><strong>Provided “as is”:</strong> Tarot Simple is provided by Cathy Checora (the developer) for use as is.</p>
+              <p><strong>Personal Information:</strong> You are not asked to provide personally identifiable information to use the app.</p>
+              <p><strong>Notes stored locally:</strong> Any notes you keep in the app are stored locally on your device.</p>
+              <p><strong>Log Data (errors):</strong> If the app encounters an error, the developer may receive anonymous log data such as IP address, device name, operating system version, app configuration at the time of use, time/date of use, and basic statistics.</p>
+              <p><strong>Advertising (Google Mobile Ads):</strong> The app uses Google Mobile Ads, which may collect information for advertising and analytics, such as device identifiers (including the advertising identifier), IP address (for approximate location), ad interaction data, app interaction events, crash logs, and performance data.</p>
+              <p><strong>Cookies:</strong> The service does not use cookies. Third-party services (such as the App Store, Play Store, and advertising providers) may have their own terms and practices.</p>
+              <p><strong>Links:</strong> The service may contain links to other sites. External websites are not operated by the developer; please review their privacy policies.</p>
+              <p><strong>Security:</strong> No method of transmission or electronic storage is 100% secure; absolute security cannot be guaranteed.</p>
+              <p><strong>Terms highlights:</strong> You may not copy, modify, reverse engineer, extract source code, translate, or create derivative versions of the app. Please keep your device secure and avoid jailbreaking/rooting.</p>
+              <p><strong>Connectivity &amp; charges:</strong> Some features may require an internet connection. You are responsible for any data/roaming charges and for keeping your device charged.</p>
+              <p><strong>Updates &amp; termination:</strong> The developer may update, change, charge for, or discontinue the app at any time. If the app is terminated, you must stop using it (and delete it if needed).</p>
+              <p>
+                <strong>Apple EULA:</strong>
+                Apple users should also review the
                 <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
-                target="_blank"
-                rel="noopener">
+                  target="_blank"
+                  rel="noopener">
                 Apple Standard End User License Agreement
                 </a>.
-            </p>
-        
-            <p><strong>Log Data (errors):</strong> If the app encounters an error, the developer may receive anonymous log data such as IP address, device name, iOS version, app configuration at the time of use, time/date of use, and basic statistics.</p>
-        
-            <p><strong>Cookies:</strong> Chip the Tooth does not use cookies.</p>
-        
-            <p><strong>Links:</strong> The service does not contain links to other sites.</p>
-        
-            <p><strong>Security &amp; device integrity:</strong> Please keep your device secure and avoid jailbreaking/rooting, which can reduce security and affect app functionality.</p>
-        
-            <p><strong>Connectivity &amp; charges:</strong> Some features may require an internet connection. You are responsible for any carrier/data/roaming charges and for keeping your device powered.</p>
-        
-            <p><strong>Limitations of liability:</strong> The developer aims to keep the app updated and correct, but accepts no liability for loss (direct or indirect) from relying on the app.</p>
-        
-            <p><strong>Changes:</strong> Policies and terms may be updated by posting changes on this page; changes take effect immediately when posted.</p>
-        
-            <p><strong>Contact:</strong> For questions or suggestions, email using the address in the Contact section below.</p>
-          </div>
-        </details>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section container reveal">
-      <div class="card" style="margin-inline: var(--spacing);">
-        <h2>Contact</h2>
-        <p>I welcome enquiries, ideas, and requests to be notified about future updates.
-        </p>
-        <div class="contact-actions">
-          <a class="btn btn-primary" href="mailto:cathy.checora@gmail.com">✉️ Email</a>
-          <button id="copyEmail" class="btn" type="button">Copy Email</button>
+              </p>
+              <p><strong>Changes:</strong> This policy and these terms may be updated by posting changes on this page; changes take effect immediately when posted.</p>
+              <p><strong>Contact:</strong> Questions or suggestions? Email using the address in the Contact section below.</p>
+            </div>
+          </details>
+          <details class="ac">
+            <summary>
+              <a
+                href="https://cchecora.github.io/OSCANada/"
+                target="_blank"
+                rel="noopener"
+                > 
+              O&nbsp;SCANada Privacy & Terms
+              </a>
+              <span class="chip">View</span>
+            </summary>
+            <div class="panel">
+              <p><strong>Personal Information:</strong> “Made In Canada?” does not collect PII such as names, email addresses, or phone numbers.</p>
+              <p><strong>Third‑Party Services:</strong> May use analytics tools that collect only non‑personal information.</p>
+              <p><strong>Changes:</strong> This policy may be updated. Please review periodically.</p>
+              <p><strong>Contact:</strong> See contact details below for questions.</p>
+            </div>
+          </details>
+          <details class="ac" id="chip-the-tooth">
+            <summary>Chip the Tooth Privacy & Terms <span class="chip">Effective: January 6, 2026</span></summary>
+            <div class="panel">
+              <p><strong>Provided “as is”:</strong> Chip the Tooth is provided by Cathy Checora (the developer) for use as is.</p>
+              <p><strong>Personal Information:</strong> The developer does not request personal information.</p>
+              <p><strong>Third-Party Services:</strong> The app does not use third-party services other than the Apple App Store. For Apple Media Services terms, please refer to the 
+                <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+                  target="_blank"
+                  rel="noopener">
+                Apple Standard End User License Agreement
+                </a>.
+              </p>
+              <p><strong>Log Data (errors):</strong> If the app encounters an error, the developer may receive anonymous log data such as IP address, device name, iOS version, app configuration at the time of use, time/date of use, and basic statistics.</p>
+              <p><strong>Cookies:</strong> Chip the Tooth does not use cookies.</p>
+              <p><strong>Links:</strong> The service does not contain links to other sites.</p>
+              <p><strong>Security &amp; device integrity:</strong> Please keep your device secure and avoid jailbreaking/rooting, which can reduce security and affect app functionality.</p>
+              <p><strong>Connectivity &amp; charges:</strong> Some features may require an internet connection. You are responsible for any carrier/data/roaming charges and for keeping your device powered.</p>
+              <p><strong>Limitations of liability:</strong> The developer aims to keep the app updated and correct, but accepts no liability for loss (direct or indirect) from relying on the app.</p>
+              <p><strong>Changes:</strong> Policies and terms may be updated by posting changes on this page; changes take effect immediately when posted.</p>
+              <p><strong>Contact:</strong> For questions or suggestions, email using the address in the Contact section below.</p>
+            </div>
+          </details>
         </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="container">
-    <p>© <span id="year"></span> Cathy Checora · I like making things.</p>
-  </footer>
-
-  <button id="toTop" class="btn" style="position: fixed; right: 16px; bottom: 16px; opacity: 0; pointer-events: none;">↑ Top</button>
-  
-  <script src="script.js" defer></script>
-</body>
+      </section>
+      <!-- Contact -->
+      <section id="contact" class="section container reveal">
+        <div class="card" style="margin-inline: var(--spacing);">
+          <h2>Contact</h2>
+          <p>I welcome enquiries, ideas, and requests to be notified about future updates.
+          </p>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="mailto:cathy.checora@gmail.com">✉️ Email</a>
+            <button id="copyEmail" class="btn" type="button">Copy Email</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="container">
+      <p>© <span id="year"></span> Cathy Checora · I like making things.</p>
+    </footer>
+    <button id="toTop" class="btn" style="position: fixed; right: 16px; bottom: 16px; opacity: 0; pointer-events: none;">↑ Top</button>
+    <script src="script.js" defer></script>
+  </body>
 </html>
