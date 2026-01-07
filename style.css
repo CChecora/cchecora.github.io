@@ -80,7 +80,28 @@
     .brand span { color: inherit; }
     .navlinks { display: flex; gap: 1rem; justify-content: center; }
     .navlinks a { position: relative; padding: .4rem .6rem; border-radius: 10px; }
-    .navlinks a.active, .navlinks a:hover { background: rgba(176, 137, 104, 0.14); }
+    /* Quiet nav hover */
+    .navlinks a.active,
+    .navlinks a:hover {
+      background: rgba(176, 137, 104, 0.05);
+    }
+    
+    .navlinks a::after {
+      content: "";
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: 4px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    
+    .navlinks a.active::after,
+    .navlinks a:hover::after {
+      opacity: 0.5;
+    }
     .nav-actions { display: flex; justify-content: end; gap: .5rem; align-items: center; }
     .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .55rem .9rem; border: 1px solid rgba(100,116,139,.25); border-radius: 12px; background: var(--card); box-shadow: var(--shadow); transition: transform var(--transition), box-shadow var(--transition), background var(--transition); }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,.14); }
