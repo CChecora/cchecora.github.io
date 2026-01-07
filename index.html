@@ -12,22 +12,31 @@
     /* =====================
        Design Tokens
     ====================== */
-    :root {
-      --bg: #0b1220;                 /* used behind gradient */
-      --card: #ffffff;
-      --muted-card: #f7f9fc;
-      --text: #111827;
-      --muted: #55607a;
-      --primary: #2563eb;
-      --accent: #22d3ee;
-      --ring: rgba(37, 99, 235, 0.35);
-      --radius: 14px;
-      --shadow: 0 10px 30px rgba(2,6,23,.08);
-      --spacing: clamp(16px, 2.5vw, 28px);
-      --container: 1120px;
-      --transition: .25s ease;
-      --nav-h: 64px;
-    }
+   :root {
+  /* Base surfaces */
+  --bg: #f4f3ef;              /* warm paper */
+  --card: #ffffff;
+  --muted-card: #f6f6f4;
+
+  /* Text */
+  --text: #1c1c1c;            /* ink */
+  --muted: #5f6368;           /* soft graphite */
+
+  /* Accents */
+  --primary: #5b6d5b;         /* muted green */
+  --accent: #b08968;          /* warm brass */
+
+  /* Effects */
+  --ring: rgba(91, 109, 91, 0.35);
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(2, 6, 23, .08);
+
+  /* Layout */
+  --spacing: clamp(16px, 2.5vw, 28px);
+  --container: 1120px;
+  --transition: .25s ease;
+  --nav-h: 64px;
+}
     [data-theme="dark"] {
       --card: #0f172a;
       --muted-card: #0b1220;
