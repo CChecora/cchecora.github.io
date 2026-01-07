@@ -185,7 +185,7 @@
 
     /* Privacy accordion */
     .accordion { display: grid; gap: .8rem; padding-inline: var(--spacing); }
-    details.ac { border: 1px solid rgba(100,116,139,.2); border-radius: var(--radius); background: var(--card); box-shadow: var(--shadow); overflow: hidden; }
+    details.ac { border: 1px solid rgba(100,116,139,.2); border-radius: var(--radius); background: var(--card); box-shadow: var(--shadow); overflow: hidden; scroll-margin-top: 6rem; }
     details.ac[open] summary { border-bottom: 1px solid rgba(100,116,139,.15); }
     details.ac summary { cursor: pointer; padding: 1rem 1.1rem; list-style: none; font-weight: 600; display: flex; align-items: center; justify-content: space-between; }
     details.ac summary::-webkit-details-marker { display: none; }
