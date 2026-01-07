@@ -374,18 +374,5 @@
     // Close on Escape
     window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && mobile.classList.contains('open')) closeMobile(); });
   </script>
-  <!-- Accordion deep-link handler -->
-<script>
-  window.addEventListener("DOMContentLoaded", () => {
-    const hash = window.location.hash.slice(1);
-    if (!hash) return;
-
-    const target = document.getElementById(hash);
-    if (target && target.tagName.toLowerCase() === "details") {
-      target.open = true;
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  });
-</script>
 </body>
 </html>
