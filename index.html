@@ -193,7 +193,15 @@
       .navlinks { display: none; }
       .nav-actions .btn.btn-primary { display: none; }
       .hamburger { display: inline-flex; }
-    }
+      nav {
+        grid-template-columns: auto 1fr auto;
+          }
+      .brand {
+        grid-column: 2;
+        text-align: center;
+        justify-self: center;
+      }
+        }
   </style>
 </head>
 <body>
