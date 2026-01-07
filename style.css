@@ -22,7 +22,7 @@
 
   /* Layout */
   --spacing: clamp(16px, 2.5vw, 28px);
-  --container: 1120px;
+  --container: 1440px;
   --transition: .25s ease;
   --nav-h: 64px;
 }
