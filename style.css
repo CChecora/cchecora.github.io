@@ -190,6 +190,8 @@
     details.ac summary { cursor: pointer; padding: 1rem 1.1rem; list-style: none; font-weight: 600; display: flex; align-items: center; justify-content: space-between; }
     details.ac summary::-webkit-details-marker { display: none; }
     details.ac .panel { padding: 1rem 1.1rem; color: var(--muted); }
+    details.ac .panel a { color: var(--primary); text-decoration: underline; text-underline-offset: 2px; }
+    details.ac .panel a:hover {  text-decoration-thickness: 2px; }
     .ac .chip {
       background: transparent;
       color: var(--accent);
