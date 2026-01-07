@@ -137,8 +137,8 @@
     /* Floating orbs background */
     .orbs { position: absolute; inset: -80px 0 auto 0; height: 240px; pointer-events: none; overflow: hidden; }
     .orb { position: absolute; width: 220px; height: 220px; border-radius: 50%; filter: blur(30px); opacity: .6; animation: float 12s ease-in-out infinite; }
-    .orb.a { left: 8%; top: -20px; background: radial-gradient(circle at 30% 30%, #22d3ee, transparent 60%); }
-    .orb.b { right: 10%; top: -40px; background: radial-gradient(circle at 70% 40%, #2563eb, transparent 60%); animation-delay: 2.2s; }
+    .orb.a { left: 8%; top: -20px; background: radial-gradient(circle at 30% 30%, rgba(176, 137, 104, 0.25), transparent 60%); }
+    .orb.b { right: 10%; top: -40px; background: radial-gradient(circle at 70% 40%, rgba(91, 109, 91, 0.25), transparent 60%); animation-delay: 2.2s; }
     @keyframes float { 0%,100%{ transform: translateY(0)} 50%{ transform: translateY(14px)} }
 
     /* =====================
@@ -157,7 +157,7 @@
     .grid { display: grid; gap: 1rem; grid-template-columns: repeat(12, 1fr); padding-inline: var(--spacing); }
     .project { grid-column: span 12; display: grid; grid-template-columns: 1fr; gap: 1rem; position: relative; overflow: hidden; }
     .project:hover .project-bg { transform: scale(1.04); }
-    .project-bg { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(37,99,235,.08), rgba(34,211,238,.08)); transition: transform var(--transition); }
+    .project-bg { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(91, 109, 91, 0.10), rgba(176, 137, 104, 0.10)); transition: transform var(--transition); }
     .project-content { position: relative; display: grid; gap: .8rem; }
     .tags { display: flex; gap: .5rem; flex-wrap: wrap; }
     .project a:hover h3 { text-decoration: underline; }
