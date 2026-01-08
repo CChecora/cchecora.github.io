@@ -197,8 +197,8 @@
       color: var(--accent);
       border: 1px solid rgba(176, 137, 104, 0.35);
     }
-
-    /* Accordion-style link card (no dropdown) */
+    
+       /* Accordion-style link card (no dropdown) */
     .link-card {
       border: 1px solid rgba(100,116,139,.2);
       border-radius: var(--radius);
