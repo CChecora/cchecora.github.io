@@ -197,6 +197,29 @@
       color: var(--accent);
       border: 1px solid rgba(176, 137, 104, 0.35);
     }
+
+    /* Accordion-style link card (no dropdown) */
+    .link-card {
+      border: 1px solid rgba(100,116,139,.2);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+    
+    .ac-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.1rem;
+      font-weight: 600;
+      color: inherit;
+      text-decoration: none;
+    }
+    
+    .ac-link:hover {
+      background: rgba(0,0,0,.03);
+    }
+
     /* Contact */
     .contact-actions { display: flex; gap: .6rem; flex-wrap: wrap; }
     .kbd { border: 1px solid rgba(100,116,139,.35); border-bottom-width: 2px; padding: 2px 6px; border-radius: 6px; font-weight: 600; font-variant-numeric: tabular-nums; }
