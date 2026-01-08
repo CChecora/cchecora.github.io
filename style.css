@@ -198,27 +198,31 @@
       border: 1px solid rgba(176, 137, 104, 0.35);
     }
     
-       /* Accordion-style link card (no dropdown) */
-    .link-card {
-      border: 1px solid rgba(100,116,139,.2);
-      border-radius: var(--radius);
-      background: var(--card);
-      box-shadow: var(--shadow);
-    }
-    
-    .ac-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 1.1rem;
-      font-weight: 600;
-      color: inherit;
-      text-decoration: none;
-    }
-    
-    .ac-link:hover {
-      background: rgba(0,0,0,.03);
-    }
+    /* Accordion-style link card (no dropdown) */
+.link-card {
+  display: block;
+  border: 1px solid rgba(100,116,139,.2);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* Match summary layout exactly */
+.ac-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.1rem;
+  font-weight: 600;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Hover parity with accordion summary */
+.ac-link:hover {
+  background: rgba(0,0,0,.03);
+}
 
     /* Contact */
     .contact-actions { display: flex; gap: .6rem; flex-wrap: wrap; }
