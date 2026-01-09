@@ -116,6 +116,26 @@
     .btn:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--ring); }
     .btn-primary { border-color: transparent; background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; box-shadow: 0 10px 30px rgba(91, 109, 91, 0.22); }
 
+    /* Force Copy Email text color (esp. iOS Safari / dark mode) */
+    #copyEmail.btn {
+      color: var(--text) !important;
+      -webkit-text-fill-color: var(--text) !important;
+    }
+    
+    /* If Copy Email is an <a> on mobile, cover states too */
+    #copyEmail.btn:visited,
+    #copyEmail.btn:active,
+    #copyEmail.btn:focus,
+    #copyEmail.btn:focus-visible {
+      color: var(--text) !important;
+      -webkit-text-fill-color: var(--text) !important;
+    }
+
+    .btn {
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
     /* Hamburger */
     .hamburger { display: none; width: 40px; height: 40px; border-radius: 10px; border: 1px solid rgba(100,116,139,.25); background: var(--card); align-items: center; justify-content: center; cursor: pointer; }
     .hamburger .bar { width: 18px; height: 2px; background: currentColor; position: relative; }
