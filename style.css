@@ -247,12 +247,19 @@
       .navlinks { display: none; }
       .nav-actions .btn.btn-primary { display: none; }
       .hamburger { display: inline-flex; }
-      nav {
+     nav {
         grid-template-columns: auto 1fr auto;
-          }
+        align-items: center;
+      }
+    
       .brand {
-        grid-column: 2;
-        text-align: center;
-        justify-self: center;
+        grid-column: 1;
+        justify-self: start;
+        text-align: left;
+      }
+    
+      .nav-actions {
+        grid-column: 3;
+        justify-self: end;
       }
      }
