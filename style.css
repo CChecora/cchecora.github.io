@@ -298,6 +298,7 @@
       text-decoration: none;
       position: relative;
       white-space: nowrap;
+        display: inline-block;
     }
     
     .credit-link::after {
