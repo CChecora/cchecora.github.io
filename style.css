@@ -84,8 +84,13 @@
       background: color-mix(in lab, var(--card) 80%, transparent);
       min-height: var(--nav-h);
     }
-    .brand { font-weight: 800; letter-spacing: .2px; }
+    .brand { display: flex; align-items: center; gap: 0.5rem; font-weight: 800; letter-spacing: .2px; }
     .brand span { color: inherit; }
+    .brand-icon {
+      width: 22px;
+      height: 22px;
+      display: block;
+    }
     .navlinks { display: flex; gap: 1rem; justify-content: center; }
     .navlinks a { position: relative; padding: .4rem .6rem; border-radius: 10px; }
     /* Quiet nav hover */
