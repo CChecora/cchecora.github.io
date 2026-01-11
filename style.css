@@ -276,6 +276,10 @@
       white-space: nowrap;
     }
 
+    .project-content p {
+      white-space: normal;
+    }
+
     /* Responsive */
     @media (min-width: 720px) {
       .about-grid { grid-template-columns: .9fr 1.1fr; }
