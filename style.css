@@ -274,8 +274,8 @@
       .about-grid { grid-template-columns: .9fr 1.1fr; }
       .project { grid-column: span 6; }
         .brand-icon {
-            width: 30px;
-            height: 30px;
+            width: 80px;
+            height: 80px;
           }
     }
 
