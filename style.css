@@ -271,6 +271,11 @@
 
     .nowrap { white-space: nowrap; }
 
+    .credit-link {
+      display: inline;
+      white-space: nowrap;
+    }
+
     /* Responsive */
     @media (min-width: 720px) {
       .about-grid { grid-template-columns: .9fr 1.1fr; }
