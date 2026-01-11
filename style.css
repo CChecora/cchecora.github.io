@@ -280,6 +280,28 @@
       white-space: normal;
     }
 
+    .project-title a {
+      color: inherit;
+      text-decoration: none;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .project-title a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -3px;
+      height: 1px;
+      background-color: var(--accent);
+      opacity: 0.6;
+    }
+    
+    .project-title a:hover::after {
+      opacity: 1;
+    }
+
     /* Responsive */
     @media (min-width: 720px) {
       .about-grid { grid-template-columns: .9fr 1.1fr; }
