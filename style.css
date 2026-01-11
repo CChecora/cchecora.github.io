@@ -269,6 +269,8 @@
     .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
+    .nowrap { white-space: nowrap; }
+
     /* Responsive */
     @media (min-width: 720px) {
       .about-grid { grid-template-columns: .9fr 1.1fr; }
